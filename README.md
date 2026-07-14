@@ -1,16 +1,120 @@
-# React + Vite
+# User Directory App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple User Directory application built with **React + JavaScript** and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+The app fetches users from an API, displays their information, allows users to search by name, and provides a form to add new users without refreshing the page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- ✅ Fetch users from JSONPlaceholder API
+- ✅ Display user:
+  - Name
+  - Email
+  - Company Name
+- ✅ Search users by name as you type
+- ✅ Show "No users found" when no results match
+- ✅ Add new users dynamically
+- ✅ Responsive UI using Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React
+- JavaScript (JSX)
+- Tailwind CSS
+- Fetch API
+- Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## API Used
+
+Users are fetched from:
+
+```
+https://jsonplaceholder.typicode.com/users
+```
+
+## Installation and Setup
+
+Clone the repository:
+
+```bash
+git clone your-repository-link
+```
+
+Go into the project folder:
+
+```bash
+cd user-directory
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the application in your browser:
+
+```
+http://localhost:5173
+```
+
+## Project Structure
+
+```
+src
+│
+├── App.jsx
+├── UserDirectory.jsx
+├── UserCard.jsx
+├── main.jsx
+└── index.css
+```
+
+## How It Works
+
+### Fetching Users
+
+The app uses `useEffect()` to fetch users when the component loads.
+
+```jsx
+useEffect(() => {
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res => res.json())
+    .then(data => setUsers(data));
+}, []);
+```
+
+### Searching Users
+
+The search input is controlled using `useState()` and filters users by name.
+
+```jsx
+users.filter(user =>
+  user.name.toLowerCase().includes(search.toLowerCase())
+)
+```
+
+### Adding Users
+
+Users can add a new user using the form. The new user is added to the top of the list without refreshing the page.
+
+## Screenshots
+
+(Add screenshots of your application here)
+
+## Future Improvements
+
+- Add delete user functionality
+- Add edit user functionality
+- Add user profile pages
+- Connect to a real backend database
+
+## Author
+
+Elias Mtisie
